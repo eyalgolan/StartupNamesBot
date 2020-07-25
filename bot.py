@@ -53,7 +53,7 @@ def name_generator():
         return random.choice(complete_word)
 
 def start(update, context):
-    keyboard = [['gimme']]
+    keyboard = [['/gimme']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Hey!\n"
@@ -62,8 +62,8 @@ def start(update, context):
                              reply_markup=reply)
 
 def gimme(update, context):
-    keyboard = [['gimme'],
-                ['yes'],['no']]
+    keyboard = [['/gimme'],
+                ['/yes'],['/no']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = name_generator() + "\n\nNow that you have a cool name for " \
                                   "your startup, lets talk business. \n" \
@@ -74,18 +74,18 @@ def gimme(update, context):
                              reply_markup=reply)
 
 def error(update, context):
-    """Log Errors caused by Updates."""
+    # Log Errors caused by Updates
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def ok(update, context):
-    keyboard = [['gimme']]
+    keyboard = [['/gimme']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = emoji_money + emoji_money + emoji_money
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text=response,
                              reply_markup=reply)
 def no(update, context):
-    keyboard = [['gimme']]
+    keyboard = [['/gimme']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = emoji_sad + emoji_cry + emoji_very_sad
     context.bot.send_message(chat_id=update.effective_chat.id,
