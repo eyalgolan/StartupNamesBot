@@ -12,6 +12,10 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 TOKEN = '993360636:AAFiqvCi9bquQoOUKZTPhXf9NT7Ei3kaqko'
 
+emoji_money = "\U0001F911"
+emoji_sad = "\U0001F628"
+emoji_cry = "\U0001F62D"
+emoji_very_sad = "\U0001F62B"
 def name_generator():
 
     choice = random.random()
@@ -56,7 +60,9 @@ def start(update, context):
 def gimme(update, context):
     response = name_generator() + "\n\nNow that you have a cool name for " \
                                   "your startup, lets talk business. \n" \
-                                  "Split the profits 50 50?"
+                                  "Split the profits 50 50? \n" \
+                                  "1. /yes or /ok \n" \
+                                  "2. /no"
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response)
 
@@ -65,11 +71,13 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def ok(update, context):
+    response = emoji_money + emoji_money + emoji_money
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="U+1F911 U+1F911 U+1F911")
+                             text=response)
 def no(update, context):
+    response = emoji_sad + emoji_cry + emoji_very_sad
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="U+1F911 U+1F911 U+1F911")
+                             text=response)
 # Create the Updater and pass it your bot's token.
 def main():
 
