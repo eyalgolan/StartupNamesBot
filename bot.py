@@ -68,7 +68,8 @@ def ok(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="U+1F911 U+1F911 U+1F911")
 def no(update, context):
-
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text="U+1F911 U+1F911 U+1F911")
 # Create the Updater and pass it your bot's token.
 def main():
 
