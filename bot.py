@@ -1,7 +1,16 @@
 import logging
 import random
 from telegram.ext import (Updater, CommandHandler)
+import os
 
+PORT = int(os.environ.get('PORT', 5000))
+
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+TOKEN = '993360636:AAFiqvCi9bquQoOUKZTPhXf9NT7Ei3kaqko'
 
 def name_generator():
 
@@ -51,29 +60,38 @@ def gimme(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response)
 
+def error(update, context):
+    """Log Errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
 # Create the Updater and pass it your bot's token.
 def main():
 
     # Create the Updater
-    updater = Updater(token='993360636:AAFiqvCi9bquQoOUKZTPhXf9NT7Ei3kaqko',
+    updater = Updater(token=TOKEN,
                       use_context=True)
-    updater.bot.setWebhook('https://startupnamesbot.herokuapp.com/' + '993360636:AAFiqvCi9bquQoOUKZTPhXf9NT7Ei3kaqko')
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
-    # Start the logger
-    logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO)
-
     # Register commands to the Dispatcher
     start_handler = CommandHandler('start', start)
-    joke_handler = CommandHandler('gimme', gimme)
+    gimme_handler = CommandHandler('gimme', gimme)
     dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(joke_handler)
+    dispatcher.add_handler(gimme_handler)
 
-    # Start the bot
-    updater.start_polling()
+    # log all errors
+    dispatcher.add_error_handler(error)
+
+    # # Start the bot on Heroku
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.setWebhook('https://startupnamesbot.herokuapp.com/' + TOKEN)
+
+    # Run the bot until you press Ctrl-C or the process receives SIGINT,
+    # SIGTERM or SIGABRT. This should be used most of the time, since
+    # start_polling() is non-blocking and will stop the bot gracefully.
+    updater.idle()
 
 if __name__ == '__main__':
     main()
