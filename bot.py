@@ -35,7 +35,7 @@ def name_generator():
                    'Industry', 'Dev', 'AI','AR','VR', 'Script', '360',
                    'Core', 'Silos', 'Unicorn', 'Log', 'Automation', 'Box',
                    'Mining','Ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
-                   'Coin', 'Gool', 'Pala', 'Dos', 'bird', 'Dude', 'Ton',
+                   'Coin', 'Goal', 'Pala', 'Dos', 'bird', 'Dude', 'Ton',
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
                    'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache',
                    'App']
@@ -49,7 +49,7 @@ def name_generator():
         first_word_item = random.choice(first_word)
         first_word_item = first_word_item.title()
         second_word_item = random.choice(second_word).title()
-        if choice > thresholds[1] and second_word_item.len <= 3:
+        if choice > thresholds[1] and second_word_item.len() <= 3:
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
