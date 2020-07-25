@@ -49,7 +49,7 @@ def name_generator():
         first_word_item = random.choice(first_word)
         first_word_item = first_word_item.title()
         second_word_item = random.choice(second_word).title()
-        if choice > thresholds[1] and second_word_item.len() <= 3:
+        if choice > thresholds[1] and len(second_word_item) <= 3:
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
@@ -69,11 +69,12 @@ def gimme(update, context):
     keyboard = [['/gimme'],
                 ['/yes'],['/no']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
-    response = name_generator() + "\n\nNow that you have a cool name for " \
+    response = "\n\nNow that you have a cool name for " \
                                   "your startup, let's talk business. \n" \
                                   "Split the profits 50 50? \n\n" \
                                   "Write /gimme to try again"
-
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text= name_generator())
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response,
                              reply_markup=reply)
