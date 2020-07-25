@@ -21,16 +21,17 @@ def name_generator():
 
     choice = random.random()
     thresholds = [0.1, 0.4]
-    first_word = ['Tera', 'Mega', 'Zeta', 'Peta', 'Right', 'Cyber', 'Global',
-                  'Net', 'Data', 'Machine', 'Killer', 'Intense', 'Continues',
-                  'Robot', 'Internet', 'Be', 'Poly', 'Lum', 'Tailor',
-                  'Embedded', 'Micro', 'Light', 'Smart', 'Slick',
+    first_word = ['Cloud','Tera', 'Mega', 'Zeta', 'Peta', 'Right', 'Cyber',
+                  'Global','Net', 'Data', 'Machine', 'Killer', 'Intense',
+                  'Continues','Robot', 'Internet', 'Be', 'Poly', 'Lum',
+                  'Tailor', 'Embedded', 'Micro', 'Light', 'Smart', 'Slick',
                   'Crypto', 'Sync', 'Deep', 'Hack', 'Digital', 'Agile',
                   'Social', 'Vector' ,'Wire', 'Geo', 'Vu', 'Azu',
                   'Atlas', 'Spo', ' Linear', 'Mash', 'Witchetty', 'Spotted',
                   'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless',
                   'Intel', 'Face', 'Sky', 'Water', 'Earth', 'Air', 'Momo',
-                  'Graph', 'Twist', 'Applied', 'Rapid', 'KickAss']
+                  'Graph', 'Twist', 'Applied', 'Rapid', 'KickAss', 'RedNeck',
+                  'Life', 'Inner', 'Outer', 'Void', 'null', 'Hero']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'Robotics', 'Chain', 'Mining', 'Bound', 'Med', 'Gold',
@@ -44,12 +45,14 @@ def name_generator():
                    'X', 'Go','Lang', 'Matters', 'Mama', 'Papa', 'Fox', 'Tube',
                    'Chat', 'Waves', 'Zone', 'Shadow', 'Bots', 'Avatar', 'Goat',
                    'Koala', 'Motors','IoT', 'Shark', 'Lock', 'Job', 'Task',
-                   'Motion', 'Ninja', 'Fort']
+                   'Motion', 'Ninja', 'Fort', 'Brain', 'Online', 'Chewbacca',
+                   'Jedi', 'Star']
 
-    complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
-                     'HorseMining', 'SeahorseVision', 'FeebasData',
-                     'DelibirdRobotics', 'GorebyssDev', 'FireShipper',
-                     'BidoofMedia', 'Fletchling.io', 'EmbeddedPidove']
+    complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'TeraAI',
+                     'YOLOMining', 'SeahorseVision', 'DataGuy',
+                     'CryptoRobotics', 'GorebyssDev', 'FireShipper',
+                     'UnicornAI', 'yourMamasContainer.io', 'EmbeddedNinja',
+                     'SlimGrid']
 
     if choice > thresholds[0]:
         first_word_item = random.choice(first_word)
