@@ -20,14 +20,15 @@ emoji_very_sad = "\U0001F62B"
 def name_generator():
 
     choice = random.random()
-    thresholds = [0.2]
+    thresholds = [0.1]
     first_word = ['Right', 'Cyber', 'Global', 'Net', 'Data', 'Machine',
                   'Robot', 'Internet', 'Be', 'Poly', 'lum', 'Tailor',
                   'Embedded', 'Micro', 'Light', 'Smart', 'Slick',
                   'Crypto', 'Sync', 'Deep', 'Hack', 'Digital', 'Agile',
                   'Social', 'Vector' ,'Wire','Ada','Tok', 'Geo', 'Vu', 'Azu',
                   'Atlas', 'Spo', ' Linear', 'Mash', 'Witchetty', 'Spotted',
-                  'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless']
+                  'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless',
+                  'Intel']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'robotics', 'Chain', 'Mining', 'Bound', 'Med', 'gold',
@@ -36,17 +37,19 @@ def name_generator():
                    'Mining','ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
                    'Coin', 'gool', 'pala', 'dos', 'bird', 'dude', 'ton',
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
-                   'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache']
+                   'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache',
+                   'App']
 
     complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
                      'HorseMining', 'SeahorseVision', 'FeebasData',
-                     'DelibirdRobotics', 'GorebyssDev', 'LombreDocs',
+                     'DelibirdRobotics', 'GorebyssDev', 'FireShipper',
                      'BidoofMedia', 'Fletchling.io', 'EmbeddedPidove']
 
     if choice > thresholds[0]:
         first_word_item = random.choice(first_word)
         second_word_item = random.choice(second_word)
-
+        if choice > thresholds[0]/2:
+            second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
     else:
@@ -66,7 +69,7 @@ def gimme(update, context):
                 ['/yes'],['/no']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = name_generator() + "\n\nNow that you have a cool name for " \
-                                  "your startup, lets talk business. \n" \
+                                  "your startup, let's talk business. \n" \
                                   "Split the profits 50 50? \n\n" \
                                   "Write /gimme to try again"
     context.bot.send_message(chat_id=update.effective_chat.id,
