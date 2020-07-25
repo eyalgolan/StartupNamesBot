@@ -22,7 +22,7 @@ def name_generator():
     choice = random.random()
     thresholds = [0.1, 0.4]
     first_word = ['Right', 'Cyber', 'Global', 'Net', 'Data', 'Machine',
-                  'Robot', 'Internet', 'Be', 'Poly', 'lum', 'Tailor',
+                  'Robot', 'Internet', 'Be', 'Poly', 'Lum', 'Tailor',
                   'Embedded', 'Micro', 'Light', 'Smart', 'Slick',
                   'Crypto', 'Sync', 'Deep', 'Hack', 'Digital', 'Agile',
                   'Social', 'Vector' ,'Wire','Ada','Tok', 'Geo', 'Vu', 'Azu',
@@ -47,8 +47,9 @@ def name_generator():
 
     if choice > thresholds[0]:
         first_word_item = random.choice(first_word)
+        first_word_item = first_word_item.title()
         second_word_item = random.choice(second_word).title()
-        if choice > thresholds[1]:
+        if choice > thresholds[1] and second_word_item.len <= 3:
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
@@ -68,10 +69,12 @@ def gimme(update, context):
     keyboard = [['/gimme'],
                 ['/yes'],['/no']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
-    response = name_generator() + "\n\nNow that you have a cool name for " \
+    response = "\n\nNow that you have a cool name for " \
                                   "your startup, let's talk business. \n" \
                                   "Split the profits 50 50? \n\n" \
                                   "Write /gimme to try again"
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text= name_generator())
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response,
                              reply_markup=reply)
