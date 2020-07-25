@@ -36,7 +36,7 @@ def name_generator():
                    'Core', 'Silos', 'Unicorn', 'Log', 'Automation', 'Box',
                    'Mining','Ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
                    'Coin', 'Goal', 'Pala', 'Dos', 'bird', 'Dude', 'Ton',
-                   'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
+                   'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers',
                    'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache',
                    'App', 'Communications','CI','CD','Deploy','Deployment',
                    'X', 'Go','Lang']
