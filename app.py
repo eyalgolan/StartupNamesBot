@@ -57,7 +57,7 @@ def main():
     # Create the Updater
     updater = Updater(token='993360636:AAFiqvCi9bquQoOUKZTPhXf9NT7Ei3kaqko',
                       use_context=True)
-
+    updater.bot.setWebhook('https://startupnamesbot.herokuapp.com/' + '993360636:AAFiqvCi9bquQoOUKZTPhXf9NT7Ei3kaqko')
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
 
