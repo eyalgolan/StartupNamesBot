@@ -21,15 +21,16 @@ def name_generator():
 
     choice = random.random()
     thresholds = [0.1, 0.4]
-    first_word = ['Right', 'Cyber', 'Global', 'Net', 'Data', 'Machine',
+    first_word = ['Tera', 'Mega', 'Zeta', 'Peta', 'Right', 'Cyber', 'Global',
+                  'Net', 'Data', 'Machine', 'Killer', 'Intense', 'Continues',
                   'Robot', 'Internet', 'Be', 'Poly', 'Lum', 'Tailor',
                   'Embedded', 'Micro', 'Light', 'Smart', 'Slick',
                   'Crypto', 'Sync', 'Deep', 'Hack', 'Digital', 'Agile',
-                  'Social', 'Vector' ,'Wire','Ada','Tok', 'Geo', 'Vu', 'Azu',
+                  'Social', 'Vector' ,'Wire', 'Geo', 'Vu', 'Azu',
                   'Atlas', 'Spo', ' Linear', 'Mash', 'Witchetty', 'Spotted',
                   'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless',
                   'Intel', 'Face', 'Sky', 'Water', 'Earth', 'Air', 'Momo',
-                  'Graph', 'Twist', 'Applied', 'Rapid']
+                  'Graph', 'Twist', 'Applied', 'Rapid', 'KickAss']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'Robotics', 'Chain', 'Mining', 'Bound', 'Med', 'Gold',
@@ -42,7 +43,8 @@ def name_generator():
                    'App', 'Communications','CI','CD','Deploy','Deployment',
                    'X', 'Go','Lang', 'Matters', 'Mama', 'Papa', 'Fox', 'Tube',
                    'Chat', 'Waves', 'Zone', 'Shadow', 'Bots', 'Avatar', 'Goat',
-                   'Koala', 'Motors','IoT', 'Shark', 'Lock']
+                   'Koala', 'Motors','IoT', 'Shark', 'Lock', 'Job', 'Task',
+                   'Motion', 'Ninja', 'Fort']
 
     complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
                      'HorseMining', 'SeahorseVision', 'FeebasData',
