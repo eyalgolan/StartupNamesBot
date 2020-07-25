@@ -26,7 +26,7 @@ def name_generator():
                   'Crypto', 'Sync', 'Deep', 'Hack', 'Digital', 'Agile',
                   'Social', 'Vector' ,'Wire','Ada','Tok', 'Geo', 'Vu', 'Azu',
                   'Atlas', 'Spo', ' Linear', 'Mash', 'Witchetty', 'Spotted',
-                  'Rocky']
+                  'Rocky', 'Intelligent', 'Silent', 'Live']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'robotics', 'Chain', 'Mining', 'Bound', 'Med', 'gold',
@@ -35,7 +35,7 @@ def name_generator():
                    'Mining','ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
                    'Coin', 'gool', 'pala', 'dos', 'bird', 'dude', 'ton',
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
-                   'Monkey']
+                   'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn']
 
     complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
                      'HorseMining', 'SeahorseVision', 'FeebasData',
