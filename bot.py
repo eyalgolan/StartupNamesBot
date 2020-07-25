@@ -60,9 +60,11 @@ def start(update, context):
 def gimme(update, context):
     response = name_generator() + "\n\nNow that you have a cool name for " \
                                   "your startup, lets talk business. \n" \
-                                  "Split the profits 50 50? \n" \
+                                  "Split the profits 50 50? \n\n" \
                                   "1. /yes or /ok \n" \
-                                  "2. /no"
+                                  "2. /no\n\n" \
+                                  "" \
+                                  "Write /gimme to try again"
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response)
 
