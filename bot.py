@@ -38,8 +38,8 @@ def name_generator():
                    'Coin', 'Goal', 'Pala', 'Dos', 'bird', 'Dude', 'Ton',
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
                    'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache',
-                   'App']
-
+                   'App', 'Communications','CI','CD','Deploy','Deployment',
+                   'X', 'Go','Lang']
     complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
                      'HorseMining', 'SeahorseVision', 'FeebasData',
                      'DelibirdRobotics', 'GorebyssDev', 'FireShipper',
