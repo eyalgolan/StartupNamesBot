@@ -28,7 +28,7 @@ def name_generator():
                   'Social', 'Vector' ,'Wire','Ada','Tok', 'Geo', 'Vu', 'Azu',
                   'Atlas', 'Spo', ' Linear', 'Mash', 'Witchetty', 'Spotted',
                   'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless',
-                  'Intel']
+                  'Intel', 'Face', 'Sky', 'Water', 'Earth', 'Air', 'Momo']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'Robotics', 'Chain', 'Mining', 'Bound', 'Med', 'Gold',
@@ -39,7 +39,9 @@ def name_generator():
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers',
                    'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache',
                    'App', 'Communications','CI','CD','Deploy','Deployment',
-                   'X', 'Go','Lang']
+                   'X', 'Go','Lang', 'Matters', 'Mama', 'Papa', 'Fox', 'Tube',
+                   'Chat', 'Waves', 'Zone', 'Shadow', 'Bots', 'Avatar']
+
     complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
                      'HorseMining', 'SeahorseVision', 'FeebasData',
                      'DelibirdRobotics', 'GorebyssDev', 'FireShipper',
