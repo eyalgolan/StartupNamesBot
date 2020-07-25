@@ -69,12 +69,11 @@ def gimme(update, context):
     keyboard = [['/gimme'],
                 ['/yes'],['/no']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
-    response = "\n\nNow that you have a cool name for " \
+    response = name_generator() + "\n\nNow that you have a cool name for " \
                                   "your startup, let's talk business. \n" \
                                   "Split the profits 50 50? \n\n" \
                                   "Write /gimme to try again"
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text= name_generator())
+
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response,
                              reply_markup=reply)
