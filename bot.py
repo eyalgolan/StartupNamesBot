@@ -64,6 +64,11 @@ def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
+def ok(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text="U+1F911 U+1F911 U+1F911")
+def no(update, context):
+
 # Create the Updater and pass it your bot's token.
 def main():
 
@@ -76,8 +81,14 @@ def main():
     # Register commands to the Dispatcher
     start_handler = CommandHandler('start', start)
     gimme_handler = CommandHandler('gimme', gimme)
+    ok_handler = CommandHandler('ok', ok)
+    yes_handler = CommandHandler('yes', ok)
+    no_handler = CommandHandler('no', no)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(gimme_handler)
+    dispatcher.add_handler(ok_handler)
+    dispatcher.add_handler(yes_handler)
+    dispatcher.add_handler(no_handler)
 
     # log all errors
     dispatcher.add_error_handler(error)
