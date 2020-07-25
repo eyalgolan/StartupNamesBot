@@ -31,11 +31,11 @@ def name_generator():
                   'Intel']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
-                   'robotics', 'Chain', 'Mining', 'Bound', 'Med', 'gold',
-                   'industry', 'Dev', 'AI','AR','VR', 'Script', '360',
+                   'Robotics', 'Chain', 'Mining', 'Bound', 'Med', 'Gold',
+                   'Industry', 'Dev', 'AI','AR','VR', 'Script', '360',
                    'Core', 'Silos', 'Unicorn', 'Log', 'Automation', 'Box',
-                   'Mining','ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
-                   'Coin', 'gool', 'pala', 'dos', 'bird', 'dude', 'ton',
+                   'Mining','Ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
+                   'Coin', 'Gool', 'Pala', 'Dos', 'bird', 'Dude', 'Ton',
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
                    'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache',
                    'App']
@@ -47,7 +47,7 @@ def name_generator():
 
     if choice > thresholds[0]:
         first_word_item = random.choice(first_word)
-        second_word_item = random.choice(second_word)
+        second_word_item = random.choice(second_word).title()
         if choice > thresholds[0]/2:
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
