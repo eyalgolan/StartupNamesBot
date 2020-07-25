@@ -20,7 +20,7 @@ emoji_very_sad = "\U0001F62B"
 def name_generator():
 
     choice = random.random()
-    thresholds = [0.1]
+    thresholds = [0.1, 0.4]
     first_word = ['Right', 'Cyber', 'Global', 'Net', 'Data', 'Machine',
                   'Robot', 'Internet', 'Be', 'Poly', 'lum', 'Tailor',
                   'Embedded', 'Micro', 'Light', 'Smart', 'Slick',
@@ -48,7 +48,7 @@ def name_generator():
     if choice > thresholds[0]:
         first_word_item = random.choice(first_word)
         second_word_item = random.choice(second_word).title()
-        if choice > thresholds[0]/2:
+        if choice > thresholds[1]:
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
