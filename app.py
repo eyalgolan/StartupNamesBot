@@ -41,7 +41,8 @@ def name_generator():
 def start(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Hey!\n"
-                                  "I'm the Startup Names Bot :)")
+                                  "I'm the Startup Names Bot :)\n"
+                                  "/gimme to start")
 
 def gimme(update, context):
     response = name_generator() + "\n\nNow that you have a cool name for " \
