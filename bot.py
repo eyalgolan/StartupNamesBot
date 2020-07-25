@@ -1,5 +1,6 @@
 import logging
 import random
+import telegram
 from telegram.ext import (Updater, CommandHandler)
 import os
 
@@ -26,7 +27,7 @@ def name_generator():
                   'Crypto', 'Sync', 'Deep', 'Hack', 'Digital', 'Agile',
                   'Social', 'Vector' ,'Wire','Ada','Tok', 'Geo', 'Vu', 'Azu',
                   'Atlas', 'Spo', ' Linear', 'Mash', 'Witchetty', 'Spotted',
-                  'Rocky', 'Intelligent', 'Silent', 'Live']
+                  'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless']
 
     second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'robotics', 'Chain', 'Mining', 'Bound', 'Med', 'gold',
@@ -35,7 +36,7 @@ def name_generator():
                    'Mining','ops', 'Grid', 'Image', 'Maps', 'UI', 'Flow',
                    'Coin', 'gool', 'pala', 'dos', 'bird', 'dude', 'ton',
                    'oop', 'byss', 'Mail', 'Dumplings', 'Rabbit', 'fingers'
-                   'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn']
+                   'Monkey', 'Hub', 'VPN', 'Vpn', 'Burn', 'Ocean', 'cache']
 
     complete_word = ['CrazyUnicorn', 'MicroBlockchain', 'JirachiAI',
                      'HorseMining', 'SeahorseVision', 'FeebasData',
@@ -52,31 +53,44 @@ def name_generator():
         return random.choice(complete_word)
 
 def start(update, context):
+    keyboard = [['gimme']]
+    reply = telegram.ReplyKeyboardMarkup(keyboard)
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Hey!\n"
                                   "I'm the Startup Names Bot :)\n"
-                                  "/gimme to start")
+                                  "/gimme to start",
+                             reply_markup=reply)
 
 def gimme(update, context):
+    keyboard = [['gimme'],
+                ['yes'],['no']]
+    reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = name_generator() + "\n\nNow that you have a cool name for " \
                                   "your startup, lets talk business. \n" \
                                   "Split the profits 50 50? \n\n" \
                                   "Write /gimme to try again"
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text= response)
+                             text= response,
+                             reply_markup=reply)
 
 def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 def ok(update, context):
+    keyboard = [['gimme']]
+    reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = emoji_money + emoji_money + emoji_money
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text=response)
+                             text=response,
+                             reply_markup=reply)
 def no(update, context):
+    keyboard = [['gimme']]
+    reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = emoji_sad + emoji_cry + emoji_very_sad
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text=response)
+                             text=response,
+                             reply_markup=reply)
 # Create the Updater and pass it your bot's token.
 def main():
 
