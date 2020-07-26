@@ -17,8 +17,8 @@ emoji_money = "\U0001F911"
 emoji_sad = "\U0001F628"
 emoji_cry = "\U0001F62D"
 emoji_very_sad = "\U0001F62B"
-def name_generator():
 
+def name_generator():
     choice = random.random()
     thresholds = [0.1, 0.4]
     first_word = ['Cloud','Tera', 'Mega', 'Zeta', 'Peta', 'Right', 'Cyber',
@@ -31,9 +31,11 @@ def name_generator():
                   'Rocky', 'Intelligent', 'Silent', 'Live', 'Bio', 'Wireless',
                   'Intel', 'Face', 'Sky', 'Water', 'Earth', 'Air', 'Momo',
                   'Graph', 'Twist', 'Applied', 'Rapid', 'KickAss', 'RedNeck',
-                  'Life', 'Inner', 'Outer', 'Void', 'null', 'Hero']
+                  'Life', 'Inner', 'Outer', 'Void', 'null', 'Hero', 'Research',
+                  'Threat']
 
-    second_word = ['.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
+    second_word = ['API', 'Endpoint', 'Framework', 'Reliability', 'Analytics',
+                   '.io', 'Inc', 'Vision', 'IO', 'Container', 'Data',
                    'Robotics', 'Chain', 'Mining', 'Bound', 'Med', 'Gold',
                    'Industry', 'Dev', 'AI','AR','VR', 'Script', '360',
                    'Core', 'Silos', 'Unicorn', 'Log', 'Automation', 'Box',
