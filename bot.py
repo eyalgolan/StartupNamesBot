@@ -19,8 +19,12 @@ emoji_cry = "\U0001F62D"
 emoji_very_sad = "\U0001F62B"
 
 def name_generator():
+
+    # Generates a random startup name
+
     choice = random.random()
     thresholds = [0.1, 0.4]
+
     first_word = ['Cloud','Tera', 'Mega', 'Zeta', 'Peta', 'Right', 'Cyber',
                   'Global','Net', 'Data', 'Machine', 'Killer', 'Intense',
                   'Continues','Robot', 'Internet', 'Be', 'Poly', 'Lum',
@@ -56,11 +60,12 @@ def name_generator():
                      'UnicornAI', 'yourMamasContainer.io', 'EmbeddedNinja',
                      'SlimGrid']
 
+    # Choose words according to random generated number and thresholds
     if choice > thresholds[0]:
         first_word_item = random.choice(first_word)
         first_word_item = first_word_item.title()
         second_word_item = random.choice(second_word).title()
-        if choice > thresholds[1] and len(second_word_item) <= 3:
+        if choice > thresholds[1] and len(second_word_item) >= 3:
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
@@ -68,6 +73,9 @@ def name_generator():
         return random.choice(complete_word)
 
 def start(update, context):
+
+    # Responds to "/start"
+
     keyboard = [['/gimme']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     context.bot.send_message(chat_id=update.effective_chat.id,
@@ -77,6 +85,8 @@ def start(update, context):
                              reply_markup=reply)
 
 def gimme(update, context):
+    # Responds to "/gimme"
+
     keyboard = [['/gimme'],
                 ['/yes'],['/no']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
@@ -94,7 +104,9 @@ def error(update, context):
     # Log Errors caused by Updates
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
-def ok(update, context):
+def yes(update, context):
+    # Responds to "/yes" response
+
     keyboard = [['/gimme']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = emoji_money + emoji_money + emoji_money
@@ -102,13 +114,15 @@ def ok(update, context):
                              text=response,
                              reply_markup=reply)
 def no(update, context):
+    # Responds to "/no" response
+
     keyboard = [['/gimme']]
     reply = telegram.ReplyKeyboardMarkup(keyboard)
     response = emoji_sad + emoji_cry + emoji_very_sad
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text=response,
                              reply_markup=reply)
-# Create the Updater and pass it your bot's token.
+
 def main():
 
     # Create the Updater
@@ -120,12 +134,10 @@ def main():
     # Register commands to the Dispatcher
     start_handler = CommandHandler('start', start)
     gimme_handler = CommandHandler('gimme', gimme)
-    ok_handler = CommandHandler('ok', ok)
-    yes_handler = CommandHandler('yes', ok)
+    yes_handler = CommandHandler('yes', yes)
     no_handler = CommandHandler('no', no)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(gimme_handler)
-    dispatcher.add_handler(ok_handler)
     dispatcher.add_handler(yes_handler)
     dispatcher.add_handler(no_handler)
 
