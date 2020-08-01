@@ -134,7 +134,7 @@ def no(update, context):
 def main():
 
     # Start keepalive thread
-    keepalive_thread = threading.Thread(target=keep_alive, args=(1,))
+    keepalive_thread = threading.Thread(target=keep_alive, args=(5,))
     logger.info("Starting keep alive thread")
     keepalive_thread.start()
     # Create the Updater
