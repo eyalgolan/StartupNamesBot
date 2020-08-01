@@ -25,7 +25,7 @@ def keep_alive(interval: int):
     while True:
         time_reminder = int(datetime.datetime.now().minute % interval)
         if time_reminder == 0:
-            logger.info("keep alive ")
+            logger.info(datetime.datetime.now().minute)
 
 def name_generator():
 
