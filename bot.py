@@ -23,7 +23,8 @@ emoji_very_sad = "\U0001F62B"
 
 def keep_alive(interval: int):
     while True:
-        if datetime.datetime.now().minute % interval == 0:
+        time_reminder = int(datetime.datetime.now().minute % interval)
+        if time_reminder == 0:
             logger.info("keep alive ")
 
 def name_generator():
