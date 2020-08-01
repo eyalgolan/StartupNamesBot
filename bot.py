@@ -3,6 +3,8 @@ import random
 import telegram
 from telegram.ext import (Updater, CommandHandler)
 import os
+import threading
+import datetime
 
 PORT = int(os.environ.get('PORT', 5000))
 
@@ -17,6 +19,12 @@ emoji_money = "\U0001F911"
 emoji_sad = "\U0001F628"
 emoji_cry = "\U0001F62D"
 emoji_very_sad = "\U0001F62B"
+
+
+def keep_alive(interval: int):
+    while True:
+        if datetime.datetime.now().minute % interval == 0:
+            logger.info("keep alive ")
 
 def name_generator():
 
@@ -125,6 +133,10 @@ def no(update, context):
 
 def main():
 
+    # Start keepalive thread
+    keepalive_thread = threading.Thread(target=keep_alive, args=(1,))
+    logger.info("Starting keep alive thread")
+    keepalive_thread.start()
     # Create the Updater
     updater = Updater(token=TOKEN,
                       use_context=True)
