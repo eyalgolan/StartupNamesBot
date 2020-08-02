@@ -166,9 +166,9 @@ def main():
     updater.idle()
 
     # Start keepalive thread
-    keepalive_thread = threading.Thread(target=keep_alive, args=(5,))
-    logger.info("Starting keep alive thread")
-    keepalive_thread.start()
+    #keepalive_thread = threading.Thread(target=keep_alive, args=(5,))
+    #logger.info("Starting keep alive thread")
+    #keepalive_thread.start()
 
 if __name__ == '__main__':
     main()
