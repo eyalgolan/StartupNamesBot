@@ -159,16 +159,16 @@ def main():
                           url_path=TOKEN)
     updater.bot.setWebhook('https://startupnamesbot.herokuapp.com/' + TOKEN)
 
-    # Start keepalive thread
-    keepalive_thread = threading.Thread(target=keep_alive, args=(5,))
-    logger.info("Starting keep alive thread")
-    keepalive_thread.start()
-    
+
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
 
+    # Start keepalive thread
+    keepalive_thread = threading.Thread(target=keep_alive, args=(5,))
+    logger.info("Starting keep alive thread")
+    keepalive_thread.start()
 
 if __name__ == '__main__':
     main()
