@@ -3,8 +3,6 @@ import random
 import telegram
 from telegram.ext import (Updater, CommandHandler)
 import os
-import threading
-import datetime
 
 PORT = int(os.environ.get('PORT', 5000))
 
@@ -21,13 +19,7 @@ emoji_cry = "\U0001F62D"
 emoji_very_sad = "\U0001F62B"
 
 
-def keep_alive(interval: int):
-    while True:
-        time_reminder = int(datetime.datetime.now().minute % interval)
-        if time_reminder == 0:
-            logger.info(datetime.datetime.now().minute)
-
-def name_generator():
+def startup_name_generator():
 
     # Generates a random startup name
 
@@ -74,14 +66,16 @@ def name_generator():
         first_word_item = random.choice(first_word)
         first_word_item = first_word_item.title()
         second_word_item = random.choice(second_word).title()
+
         if choice > thresholds[1] and len(second_word_item) >= 3:
+            # lowercase the first letter of the second word
             second_word_item = second_word_item.lower()
         return first_word_item+second_word_item
 
     else:
         return random.choice(complete_word)
 
-def start(update, context):
+def respond_to_start_message(update, context):
 
     # Responds to "/start"
 
@@ -93,7 +87,7 @@ def start(update, context):
                                   "/gimme to start",
                              reply_markup=reply)
 
-def gimme(update, context):
+def respond_to_gimme_message(update, context):
     # Responds to "/gimme"
 
     keyboard = [['/gimme'],
@@ -104,16 +98,16 @@ def gimme(update, context):
                                   "Split the profits 50 50? \n\n" \
                                   "Write /gimme to try again"
     context.bot.send_message(chat_id=update.effective_chat.id,
-                             text= name_generator())
+                             text= startup_name_generator())
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text= response,
                              reply_markup=reply)
 
-def error(update, context):
+def error_handler(update, context):
     # Log Errors caused by Updates
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
-def yes(update, context):
+def respond_to_yes_message(update, context):
     # Responds to "/yes" response
 
     keyboard = [['/gimme']]
@@ -122,7 +116,7 @@ def yes(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text=response,
                              reply_markup=reply)
-def no(update, context):
+def respond_to_no_message(update, context):
     # Responds to "/no" response
 
     keyboard = [['/gimme']]
@@ -141,17 +135,17 @@ def main():
     dispatcher = updater.dispatcher
 
     # Register commands to the Dispatcher
-    start_handler = CommandHandler('start', start)
-    gimme_handler = CommandHandler('gimme', gimme)
-    yes_handler = CommandHandler('yes', yes)
-    no_handler = CommandHandler('no', no)
+    start_handler = CommandHandler('start', respond_to_start_message)
+    gimme_handler = CommandHandler('gimme', respond_to_gimme_message)
+    yes_handler = CommandHandler('yes', respond_to_yes_message)
+    no_handler = CommandHandler('no', respond_to_no_message)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(gimme_handler)
     dispatcher.add_handler(yes_handler)
     dispatcher.add_handler(no_handler)
 
     # log all errors
-    dispatcher.add_error_handler(error)
+    dispatcher.add_error_handler(error_handler)
 
     # # Start the bot on Heroku
     updater.start_webhook(listen="0.0.0.0",
@@ -164,11 +158,6 @@ def main():
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
-
-    # Start keepalive thread
-    #keepalive_thread = threading.Thread(target=keep_alive, args=(5,))
-    #logger.info("Starting keep alive thread")
-    #keepalive_thread.start()
 
 if __name__ == '__main__':
     main()
