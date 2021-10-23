@@ -9,4 +9,4 @@ link: https://lnkd.in/dF-6Wua
 
 ![BotUsageExample](https://github.com/eyalgolan/StartupNamesBot/blob/master/bot_usage.jpg?raw=true)
 
-<img src="https://github.com/eyalgolan/StartupNamesBot/blob/master/bot_usage.jpg" width="100" height="100">
+<img src="https://github.com/eyalgolan/StartupNamesBot/blob/master/bot_usage.jpg" width="1000" height="1000">
