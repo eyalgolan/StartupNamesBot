@@ -7,4 +7,6 @@ Note that you need to have the Telegram app installed in order to use the bot.
 
 link: https://lnkd.in/dF-6Wua
 
-![BotUsageExample](https://github.com/eyalgolan/StartupNamesBot/blob/master/bot_usage.jpg | width=100)
+![BotUsageExample](https://github.com/eyalgolan/StartupNamesBot/blob/master/bot_usage.jpg?raw=true)
+
+<img src="https://github.com/eyalgolan/StartupNamesBot/blob/master/bot_usage.jpg" width="100" height="100">
